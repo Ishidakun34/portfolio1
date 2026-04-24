@@ -15,13 +15,13 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--cream); color: var(--dark); font-family: var(--sans); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(245,242,235,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(139,115,85,0.15); }
-    .nav-logo { font-family: var(--serif); font-size: 15px; color: var(--dark); text-decoration: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; background: rgba(245,242,235,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(139,115,85,0.15); }
+    .nav-logo { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--dark); text-decoration: none; white-space: nowrap; }
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { font-size: 13px; color: var(--mid); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--dark); }
 
-    .hero { padding: 9rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+    .hero { padding: calc(64px + 4rem) 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(196,168,130,0.18) 0%, transparent 70%); pointer-events: none; }
     .hero-eyebrow { font-size: 11px; font-weight: 500; color: var(--tan); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.6s ease forwards; }
     .hero h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 4.2rem); color: var(--dark); line-height: 1.1; margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
@@ -62,11 +62,10 @@
     .booking-banner { background: var(--dark); color: #F5F2EB; text-align: center; padding: 3rem 2rem; }
     .booking-inner { max-width: 560px; margin: 0 auto; }
     .booking-eyebrow { font-size: 11px; color: var(--tan-light); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
-    .booking-title { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.75rem; }
-    .booking-title em { font-style: italic; color: var(--tan-light); }
-    .booking-desc { font-size: 13px; color: rgba(245,242,235,0.6); margin-bottom: 1.75rem; line-height: 1.7; }
-    .btn-booking { display: inline-block; background: transparent; color: #F5F2EB; font-size: 13px; padding: 10px 24px; border-radius: 999px; border: 1px solid rgba(245,242,235,0.25); text-decoration: none; transition: border-color 0.2s; }
-    .btn-booking:hover { border-color: var(--tan-light); }
+    .booking-title { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.75rem; color: #F5F2EB; }
+    .booking-desc { font-size: 13px; color: rgba(245,242,235,0.6); margin-bottom: 1.25rem; line-height: 1.7; }
+    .booking-email { color: #F5F2EB; font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(245,242,235,0.25); padding-bottom: 1px; transition: border-color 0.2s; }
+    .booking-email:hover { border-color: var(--tan-light); }
 
     .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(44,36,22,0.93); align-items: center; justify-content: center; padding: 2rem; }
     .lightbox.open { display: flex; }
@@ -78,6 +77,7 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    @media (max-width: 600px) { nav { padding: 0 1.1rem; } .nav-links { gap: 1.1rem; } .nav-links a { font-size: 12px; } }
     @media (max-width: 680px) {
       nav { padding: 1rem 1.25rem; } .nav-links { gap: 1.2rem; }
       .grid-featured, .grid-3, .grid-2, .grid-2-asym, .grid-4 { grid-template-columns: 1fr; }
@@ -91,10 +91,10 @@
 <nav>
   <a href="index.html" class="nav-logo">Rolando Ramirez Jr.</a>
   <div class="nav-links">
-    <a href="index.html">About</a>
+    <a href="index.html">About me</a>
     <a href="work.html">Work</a>
     <a href="side-quests.html" class="active">Side Quests</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="contact.html">Let's Connect</a>
   </div>
 </nav>
 
@@ -194,9 +194,9 @@
 <div class="booking-banner">
   <div class="booking-inner">
     <p class="booking-eyebrow">Available for collaborations</p>
-    <h2 class="booking-title">Hand &amp; product <em>model</em></h2>
+    <h2 class="booking-title">Hand &amp; product model</h2>
     <p class="booking-desc">Available for bookings and brand collaborations. Whether it's lifestyle, food, beverage, or retail — let's create something worth sharing.</p>
-    <a href="mailto:cholloramirez@gmail.com" class="btn-booking">Inquiries welcome &rarr;</a>
+    <a href="mailto:cholloramirez@gmail.com" class="booking-email">cholloramirez@gmail.com</a>
   </div>
 </div>
 
@@ -217,5 +217,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => io.observe(r));
 </script>
+
+  <div style="text-align:center;padding:1.2rem 2rem;font-size:11px;color:var(--tan-light);border-top:1px solid rgba(139,115,85,0.1);letter-spacing:0.05em;">Built with <a href="https://claude.ai" target="_blank" style="color:var(--tan-light);text-decoration:none;border-bottom:1px solid rgba(196,168,130,0.3);">Claude AI</a> &nbsp;&middot;&nbsp; &copy; 2025 Rolando Ramirez Jr.</div>
 </body>
 </html>
